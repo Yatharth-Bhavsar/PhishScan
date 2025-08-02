@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhishScan Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .section {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .link-container {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: #f9f9f9;
+        }
+        .test-form {
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: #f9f9f9;
+        }
+        .test-form input {
+            margin: 5px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .test-form button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .test-form button:hover {
+            background: #0056b3;
+        }
+        .instructions {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 4px solid #007bff;
+            margin-bottom: 20px;
+        }
+        .warning {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 4px solid #ffc107;
+            margin-bottom: 20px;
+        }
+        .success {
+            background: #d4edda;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 4px solid #28a745;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        h2 {
+            color: #555;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+        }
+        .api-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #dee2e6;
+            margin-bottom: 20px;
+        }
+        .api-info h3 {
+            margin-top: 0;
+            color: #495057;
+        }
+        .api-info ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .api-info li {
+            margin: 5px 0;
+        }
+        .api-info code {
+            background: #e9ecef;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 PhishScan Extension Test Page</h1>
+
+    <div class="section">
+        <h2>🔗 Test Links - Should Be Detected</h2>
+        <p>These links should be flagged as malicious by the OpenPhish database or APIs:</p>
+        
+        <div class="link-container">
+            <a href="http://auspostac.world/index.html" target="_blank">Test Link 1: auspostac.world</a>
+        </div>
+        
+        <div class="link-container">
+            <a href="https://meta-maskloig.godaddysites.com" target="_blank">Test Link 2: MetaMask Phishing</a>
+        </div>
+        
+        <div class="link-container">
+            <a href="http://litebluelogin-gov.com" target="_blank">Test Link 3: Fake Government Login</a>
+        </div>
+        
+        <div class="link-container">
+            <a href="https://netflix-web.vercel.app" target="_blank">Test Link 4: Fake Netflix</a>
+        </div>
+        
+        <div class="link-container">
+            <a href="http://connect-ledger-login.typedream.app" target="_blank">Test Link 5: Fake Ledger Login</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🔗 Shortened URL Tests</h2>
+        <p>These shortened URLs should be resolved and checked for malicious content:</p>
+        
+        <div class="link-container">
+            <a href="https://bit.ly/3QZqX9Y" target="_blank">Shortened URL 1: bit.ly link</a>
+        </div>
+        
+        <div class="link-container">
+            <a href="https://tinyurl.com/2p8n9x7z" target="_blank">Shortened URL 2: tinyurl link</a>
+        </div>
+        
+        <div class="link-container">
+            <a href="https://t.co/example" target="_blank">Shortened URL 3: t.co link</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📝 Test Forms - Should Be Detected</h2>
+        <p>These forms have malicious action URLs that should be flagged:</p>
+        
+        <div class="test-form">
+            <form action="http://auspostac.world/login.php" method="post">
+                <input type="text" placeholder="Username" name="username">
+                <input type="text" placeholder="Password" name="password">
+                <button type="submit">Login</button>
+            </form>
+        </div>
+        
+        <div class="test-form">
+            <form action="https://meta-maskloig.godaddysites.com/verify" method="post">
+                <input type="text" placeholder="Email" name="email">
+                <input type="text" placeholder="Password" name="password">
+                <button type="submit">Verify Account</button>
+            </form>
+        </div>
+        
+        <div class="test-form">
+            <form action="http://fake-bank-login.com/secure" method="post">
+                <input type="text" placeholder="Account Number" name="account">
+                <input type="text" placeholder="PIN" name="pin">
+                <button type="submit">Access Account</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>✅ Safe Links - Should NOT Be Detected</h2>
+        <p>These links should be safe and not flagged (whitelisted domains):</p>
+        
+        <div class="link-container">
+            <a href="https://www.google.com" target="_blank">Safe Link 1: Google</a>
+        </div>
+        
+        <div class="link-container">
+            <a href="https://github.com" target="_blank">Safe Link 2: GitHub</a>
+        </div>
+        
+        <div class="link-container">
+            <a href="https://www.microsoft.com" target="_blank">Safe Link 3: Microsoft</a>
+        </div>
+        
+        <div class="link-container">
+            <a href="https://m.lottemart.cyou/home" target="_blank">Safe Link 4: Amazon</a>
+        </div>
+        
+        <div class="link-container">
+            <a href="https://www.paypal.com" target="_blank">Safe Link 5: PayPal</a>
+        </div>
+    </div>
+
+    
+    
+    <div class="success">
+        <h3>✅ Expected Results</h3>
+        <ul>
+            <li><strong>Malicious links</strong> should have red borders and ⚠️ icons</li>
+            <li><strong>Shortened URLs</strong> should show 🔗⚠️ icons if resolved to malicious sites</li>
+            <li><strong>Safe links</strong> should have no red borders</li>
+            <li><strong>Popup should show</strong> detailed detection information including VirusTotal engine counts</li>
+            <li><strong>Forms with malicious actions</strong> should be highlighted</li>
+        </ul>
+    </div>
+
+    <script>
+        function addDynamicContent() {
+            const container = document.getElementById('dynamic-content');
+            const timestamp = Date.now();
+            
+            container.innerHTML = `
+                <div class="link-container" style="margin-top: 10px;">
+                    <a href="http://dynamic-phishing-${timestamp}.com" target="_blank">Dynamic Malicious Link ${timestamp}</a>
+                </div>
+                <div class="test-form" style="margin-top: 10px;">
+                    <form action="http://dynamic-form-${timestamp}.com/submit" method="post">
+                        <input type="text" placeholder="Dynamic Form Input" name="data">
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            `;
+            
+            console.log('Added dynamic content with timestamp:', timestamp);
+        }
+
+        function testDetection() {
+            const debugOutput = document.getElementById('debug-output');
+            debugOutput.innerHTML = 'Testing detection...\n';
+            
+            // Test a known malicious URL
+            const testUrl = 'http://auspostac.world/index.html';
+            debugOutput.innerHTML += `Testing URL: ${testUrl}\n`;
+            
+            // Check if extension is loaded
+            if (typeof chrome !== 'undefined' && chrome.runtime) {
+                debugOutput.innerHTML += 'Chrome extension API available\n';
+                
+                // Try to send a message to the extension
+                chrome.runtime.sendMessage({ type: 'GET_PHISH_FEED' }, (response) => {
+                    if (chrome.runtime.lastError) {
+                        debugOutput.innerHTML += `Error: ${chrome.runtime.lastError.message}\n`;
+                    } else {
+                        debugOutput.innerHTML += `Phish feed response: ${JSON.stringify(response)}\n`;
+                    }
+                });
+            } else {
+                debugOutput.innerHTML += 'Chrome extension API not available\n';
+            }
+            
+            // Check for highlighted elements
+            const highlightedElements = document.querySelectorAll('[data-phishscan]');
+            debugOutput.innerHTML += `Found ${highlightedElements.length} highlighted elements\n`;
+            
+            // Check for links that should be detected
+            const allLinks = document.querySelectorAll('a[href]');
+            debugOutput.innerHTML += `Total links on page: ${allLinks.length}\n`;
+            
+            allLinks.forEach((link, index) => {
+                if (link.href.includes('auspostac.world') || link.href.includes('meta-maskloig')) {
+                    debugOutput.innerHTML += `Link ${index}: ${link.href} - Highlighted: ${link.hasAttribute('data-phishscan')}\n`;
+                }
+            });
+        }
+
+        function showDebugInfo() {
+            const debugOutput = document.getElementById('debug-output');
+            debugOutput.innerHTML = 'Debug Information:\n\n';
+            
+            // Extension info
+            debugOutput.innerHTML += '=== Extension Status ===\n';
+            if (typeof chrome !== 'undefined' && chrome.runtime) {
+                debugOutput.innerHTML += '✅ Chrome extension API available\n';
+                debugOutput.innerHTML += `Extension ID: ${chrome.runtime.id}\n`;
+            } else {
+                debugOutput.innerHTML += '❌ Chrome extension API not available\n';
+            }
+            
+            // Page info
+            debugOutput.innerHTML += '\n=== Page Information ===\n';
+            debugOutput.innerHTML += `URL: ${window.location.href}\n`;
+            debugOutput.innerHTML += `Title: ${document.title}\n`;
+            
+            // Links info
+            const allLinks = document.querySelectorAll('a[href]');
+            const allForms = document.querySelectorAll('form[action]');
+            debugOutput.innerHTML += `Total links: ${allLinks.length}\n`;
+            debugOutput.innerHTML += `Total forms: ${allForms.length}\n`;
+            
+            // Highlighted elements
+            const highlightedElements = document.querySelectorAll('[data-phishscan]');
+            debugOutput.innerHTML += `Highlighted elements: ${highlightedElements.length}\n`;
+            
+            // Sample links
+            debugOutput.innerHTML += '\n=== Sample Links ===\n';
+            allLinks.forEach((link, index) => {
+                if (index < 5) {
+                    debugOutput.innerHTML += `${index + 1}. ${link.href}\n`;
+                }
+            });
+            
+            // Check for test URLs
+            debugOutput.innerHTML += '\n=== Test URL Check ===\n';
+            const testUrls = ['auspostac.world', 'meta-maskloig.godaddysites.com', 'litebluelogin-gov.com'];
+            testUrls.forEach(testUrl => {
+                const found = Array.from(allLinks).some(link => link.href.includes(testUrl));
+                debugOutput.innerHTML += `${testUrl}: ${found ? '✅ Found' : '❌ Not found'}\n`;
+            });
+        }
+
+        // Log when page loads
+        console.log('PhishScan Test Page loaded');
+        console.log('Expected malicious URLs: auspostac.world, meta-maskloig.godaddysites.com, etc.');
+        console.log('Check browser console for PhishScan logs');
+    </script>
+</body>
+</html> 

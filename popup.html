@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PhishScan</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>PhishScan</h1>
+    
+    <label class="switch">
+      <input type="checkbox" id="toggle">
+      <span class="slider"></span>
+      <span id="toggle-label">Detection ON</span>
+    </label>
+    
+    <button id="refresh-btn" class="refresh-btn">Refresh</button>
+    
+    <div id="status" class="status">Checking...</div>
+    
+    <ul id="malicious-list"></ul>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html> 

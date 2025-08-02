@@ -37,7 +37,7 @@ A powerful Chrome extension that detects and highlights phishing or malicious UR
 
 ### 1. **Download the Extension**
 ```bash
-git clone <repository-url>
+git clone https://github.com/Yatharth-Bhavsar/PhishScan
 cd phishscan-extension
 ```
 
@@ -285,5 +285,6 @@ For issues, questions, or contributions:
 - **Testing**: Use the provided `test.html` page
 
 ---
+
 
 **⚠️ Disclaimer**: This extension is for educational and security purposes. Always verify URLs independently and use multiple security tools for comprehensive protection. 

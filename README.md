@@ -251,40 +251,11 @@ Enable detailed logging by checking browser console (F12):
 - **Custom Rules**: User-defined detection rules
 - **Threat Scoring**: Risk assessment algorithms
 
-## 🤝 Contributing
+##🤝 **The Team** 
 
-### **Development Setup**
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly with `test.html`
-5. Submit a pull request
-
-### **Code Standards**
-- **ES6+**: Modern JavaScript features
-- **Manifest V3**: Latest Chrome extension standards
-- **Error Handling**: Comprehensive error management
-- **Documentation**: Clear code comments
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🙏 Acknowledgments
-
-- **OpenPhish**: For providing the phishing URL database
-- **VirusTotal**: For the comprehensive threat intelligence API
-- **Google Safe Browsing**: For the threat detection API
-- **Chrome Extensions Team**: For the excellent documentation
-
-## 📞 Support
-
-For issues, questions, or contributions:
-- **GitHub Issues**: Report bugs and feature requests
-- **Documentation**: Check this README and code comments
-- **Testing**: Use the provided `test.html` page
-
----
-
+- **Yatharth Bhavsar**
+- **Smeet Sadhu**
+- **Mahi Panchal**
 
 **⚠️ Disclaimer**: This extension is for educational and security purposes. Always verify URLs independently and use multiple security tools for comprehensive protection. 
+
